@@ -2,13 +2,18 @@
     "name": "maurocasas/fastindex",
     "type": "project",
     "description": "FastIndex - Open source search engine indexing tool",
-    "keywords": ["laravel", "google search console", "indexing"],
+    "keywords": [
+        "laravel",
+        "google search console",
+        "indexing"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "ext-dom": "*",
         "ext-simplexml": "*",
         "ext-xmlreader": "*",
+        "ext-zip": "*",
         "ashallendesign/favicon-fetcher": "^3.6",
         "google/apiclient": "^2.15.0",
         "laravel/framework": "^11.9",

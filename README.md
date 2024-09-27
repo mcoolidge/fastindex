@@ -31,12 +31,33 @@ No vendor lock-in means all your data is yours and will always be yours.
 
 # Quick Start
 
+## Option 1: Local Installation
+
 1. `composer create-project maurocasas/fastindex`
 2. `npm i`
 3. `npm run build`
 4. `php artisan db:seed`
 5. `php artisan serve`
 6. Log-in using `user@user.com` `password`
+
+## Option 2: Using Docker
+
+1. Ensure Docker is installed and running on your system:
+   - On macOS, open Docker Desktop application
+   - On Linux, run `sudo systemctl start docker`
+
+2. Build the Docker image:
+   ```
+   docker build -t fastindex .
+   ```
+3. Run the container:
+   ```
+   docker run -p 8000:80 fastindex
+   ```
+4. Access the application at `http://localhost:8000`
+5. Log-in using `user@user.com` `password`
+
+Note: If you encounter issues with Docker not running, make sure the Docker daemon is started and you have the necessary permissions.
 
 For more detailed instructions please refer to the Wiki.
 
