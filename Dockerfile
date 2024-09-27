@@ -1,8 +1,7 @@
-# Use an official PHP runtime as a parent image
 FROM php:8.2-apache
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Install system dependencies
+# Install system dependencies and clear cache in a single layer
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -15,12 +14,10 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     nodejs \
-    npm
+    npm \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Configure and install PHP extensions
+# Configure and install PHP extensions in a single layer
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
